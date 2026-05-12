@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme (Apple.com style) */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 11.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11.4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 11.4%;
+
+    --primary: 0 100% 34.5%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 11.4%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 43.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 11.4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 100% 34.5%;
+
+    --radius: 0.5rem;
+
+    /* Semantic surface tokens */
+    --surface: 0 0% 96.1%;
+    --surface-elevated: 0 0% 100%;
+    --surface-card: 0 0% 96.5%;
+    --surface-card-hover: 0 0% 93%;
+    --surface-alt: 0 0% 96.86%;
+    --surface-input: 0 0% 100%;
+    --border-subtle: 0 0% 89.8%;
+    --border-input: 0 0% 85%;
+    --nav-bg: 0 0% 96.86%;
+    --footer-bg: 0 0% 96.86%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 11.4%;
+    --sidebar-primary: 0 100% 34.5%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96.1%;
+    --sidebar-accent-foreground: 0 0% 11.4%;
+    --sidebar-border: 0 0% 89.8%;
+    --sidebar-ring: 0 100% 34.5%;
+  }
+
+  .dark {
+    /* Dark theme (current) */
+    --background: 0 0% 2%;
+    --foreground: 0 0% 96.1%;
+
+    --card: 0 0% 7.1%;
+    --card-foreground: 0 0% 96.1%;
+
+    --popover: 0 0% 7.1%;
+    --popover-foreground: 0 0% 96.1%;
+
+    --primary: 43 72% 52.5%;
+    --primary-foreground: 0 0% 2%;
+
+    --secondary: 0 0% 87.8%;
+    --secondary-foreground: 0 0% 2%;
+
+    --muted: 0 0% 10.2%;
+    --muted-foreground: 0 0% 64%;
+
+    --accent: 0 0% 10.2%;
+    --accent-foreground: 0 0% 96.1%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 96.1%;
+
+    --border: 0 0% 14.5%;
+    --input: 0 0% 14.5%;
+    --ring: 43 72% 52.5%;
+
+    /* Semantic surface tokens */
+    --surface: 0 0% 7.1%;
+    --surface-elevated: 0 0% 10.2%;
+    --surface-card: 0 0% 10.2%;
+    --surface-card-hover: 0 0% 14%;
+    --surface-alt: 0 0% 6.7%;
+    --surface-input: 0 0% 8%;
+    --border-subtle: 0 0% 14.5%;
+    --border-input: 0 0% 15%;
+    --nav-bg: 0 0% 0%;
+    --footer-bg: 0 0% 0%;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 96.1%;
+    --sidebar-primary: 43 72% 52.5%;
+    --sidebar-primary-foreground: 0 0% 2%;
+    --sidebar-accent: 0 0% 10.2%;
+    --sidebar-accent-foreground: 0 0% 96.1%;
+    --sidebar-border: 0 0% 14.5%;
+    --sidebar-ring: 43 72% 52.5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  .section-dark {
+    @apply w-full py-16 md:py-32;
+    background-color: hsl(var(--background));
+  }
+  .section-alt {
+    @apply w-full py-16 md:py-32;
+    background-color: hsl(var(--surface-alt));
+  }
+  .section-container {
+    @apply mx-auto max-w-6xl px-6;
+  }
+  .card-hover {
+    @apply z-0 hover:z-50 shadow-[0_2px_10px_rgba(0,0,0,0.08)] transition-all duration-700 hover:scale-[1.04] hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)];
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+}
+
+@keyframes cell-pulse {
+  from { opacity: var(--opacity-min, 0.05); }
+  to { opacity: var(--opacity-max, 0.5); }
+}
+
+.grid-cell {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  opacity: 0.1;
+  transition: opacity 0.3s ease;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
